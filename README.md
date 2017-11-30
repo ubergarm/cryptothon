@@ -2,7 +2,7 @@ cryptothon
 ===
 Cryptocurrency hack-a-thon-o-rama weekend project.
 
-## Overview
+## Goal
 Make an Ethereum `Dapp` written in `Solidity`.
 
 ## Quickstart
