@@ -9,18 +9,19 @@ Make an Ethereum `Dapp` written in `Solidity`.
 #### Install Dependencies
 Assumes docker is installed already.
 ```bash
-docker build -t dapp .                build the Docker image
-docker run -it -v `pwd`:/src dapp     run `dapp test' on the current directory
+# build the Docker image
+docker build -t dapp .
+# manually run dapp command test
+docker run --rm -it -v "$PWD":/src dapp dapp test
 ```
 
 #### Developing
 ```bash
 # TODO
-```
-
-#### Testing
-```bash
-# TODO
+make        # build src
+make clean  # clean out/*
+make test   # test
+make deploy # deploy
 ```
 
 ## References
