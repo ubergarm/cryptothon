@@ -10,12 +10,10 @@ Make an Ethereum `Dapp` written in `Solidity`.
 Assumes docker is installed already.
 ```bash
 # clone repo and update lib deps
-git submodule init
-git submodule update
 # build the Docker image
-docker build -t dapp .
-# manually run dapp command build
-docker run --rm -it -v "$PWD":/src dapp dapp build
+docker build -t truffle .
+# manually run truffle cli
+docker run --rm -it -v "$PWD":/src truffle
 # see Makefile for more
 ```
 
@@ -28,12 +26,13 @@ make deploy # deploy
 ```
 
 ## Ethereum Network
-Test server network
+Local Testing:
 ```bash
-# TODO
+# stand alone local test client
+docker run --rm -it -p 8545:8545 trufflesuite/ganache-cli
 ```
 
-Client:
+Testing:
 ```bash
 # This will persist your configuration in ~/.ethereum (might need to set permissions properly)
 # https://github.com/ethereum/go-ethereum#full-node-on-the-ethereum-test-network
@@ -56,8 +55,13 @@ docker run --rm -it \
 > admin.nodeInfo
 ```
 
+Actual Ethereum Network:
+```bash
+# just remove --testnet from previous command
+```
+
 ## References
-* [dapphub/dapp](https://github.com/dapphub/dapp)
+* [trufflesuite/ganache-cli](https://github.com/trufflesuite/ganache-cli)
 * [ethereum/solidity](https://github.com/ethereum/solidity)
 * [ethereum/go-ethereum](https://github.com/ethereum/go-ethereum)
 * [list of decentralized apps](https://www.stateofthedapps.com/)
