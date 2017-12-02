@@ -35,6 +35,7 @@ docker run --rm -it geth -v "$HOME":/root --testnet account new
 # Connect a console
 docker run --rm -it \
            -v "$HOME":/root \
+           -p 8080:8080 \
            -p 8545:8545 \
            -p 8546:8546 \
            -p 30303:30303 \
