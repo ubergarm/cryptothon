@@ -28,13 +28,15 @@ docker run --rm -it -p 8545:8545 trufflesuite/ganache-cli
 
 Ethereum Testnet:
 ```bash
+# Note you could also use --rinkeby instead of --testnet (ropsten?)
+
 # This will persist your configuration in ~/.ethereum (might need to set permissions properly)
 # https://github.com/ethereum/go-ethereum#full-node-on-the-ethereum-test-network
 # Setup a new account
 docker run --rm -it \
            -v "$HOME":/root \
            ethereum/client-go:stable \
-           --testnet account new
+           --rinkeby account new
 # Connect a console
 docker run --rm -it \
            -v "$HOME":/root \
@@ -44,7 +46,7 @@ docker run --rm -it \
            -p 30303:30303 \
            -p 30304:30304 \
            ethereum/client-go:stable \
-           --testnet \
+           --rinkeby \
            --fast \
            --cache=512 \
            --rpc \
@@ -62,11 +64,23 @@ docker run --rm -it \
 > personal # all personal commands
 > personal.unlockAccount(eth.accounts[0]) # unlock 1st account
 > web3.personal.unlockAccount(web3.personal.listAccounts[0]) # unlock web3 account
+> eth.getBalance(eth.coinbase) # get balance in Ethercoin
 ```
 
 Ethereum Real Network:
 ```bash
-# just remove --testnet from previous command
+# just remove --testnet or --rinkeby from previous command
+```
+
+## Currency Units
+```bash
+1: wei (smallest atomic unit of currency)
+10^3: (Kwei (kilowei))
+10^6: (Mwei (megawei))
+10^9: (Gwei (gigawei))
+10^12: szabo
+10^15: finney
+10^18: ether
 ```
 
 ## References
