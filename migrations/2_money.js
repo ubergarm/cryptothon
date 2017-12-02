@@ -1,5 +1,5 @@
 var Money = artifacts.require("MoneyMoneyMoneyMoney");
 
 module.exports = function(deployer) {
-    deployer.deploy(Money, 500);
+  deployer.deploy(Money, 500);
 };

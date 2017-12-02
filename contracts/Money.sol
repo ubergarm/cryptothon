@@ -1,12 +1,12 @@
 pragma solidity ^0.4.17;
 
-contract MoneyMoneyMoneyMoney {
+contract Money {
 
   uint private myFuckingMoney; // how much money this contract has accumulated.
 
 
 
-  function MoneyMoneyMoneyMoney(uint initialFuckingMoney) public {
+  function Money(uint initialFuckingMoney) public {
 
     myFuckingMoney = initialFuckingMoney;
 
@@ -14,7 +14,7 @@ contract MoneyMoneyMoneyMoney {
 
 
 
-  function takeMyMoney (uint amountOfFuckingMoney) public {
+  function put (uint amountOfFuckingMoney) public {
 
     myFuckingMoney = myFuckingMoney + amountOfFuckingMoney;
 
@@ -22,7 +22,7 @@ contract MoneyMoneyMoneyMoney {
 
 
 
-  function tellMeHowMuchFuckingMoneyYouHave () public constant returns (uint) {
+  function get () public constant returns (uint) {
 
     return myFuckingMoney;
 
