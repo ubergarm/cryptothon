@@ -92,6 +92,13 @@ Ethereum Real Network:
   * `var money_contract = web3.eth.contract(abi)`
   * `var money_inst = money_contract.at('<contract addr>')`
 
+## Web
+```bash
+cd web
+yarn install npm install --save
+npm start
+```
+
 ## References
 * [truffleframework](http://truffleframework.com/docs/getting_started/installation)
 * [trufflesuite/ganache-cli](https://github.com/trufflesuite/ganache-cli)
