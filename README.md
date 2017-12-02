@@ -49,6 +49,11 @@ docker run --rm -it \
            --cache=512 \
            console
 # <cntrl-d> to exit
+# some commands:
+> net.listening
+> net.peerCount
+> admin.peers
+> admin.nodeInfo
 ```
 
 ## References
