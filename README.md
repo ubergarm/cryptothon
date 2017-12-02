@@ -6,33 +6,27 @@ Cryptocurrency hack-a-thon-o-rama weekend project.
 Make an Ethereum `Dapp` written in `Solidity`.
 
 ## Quickstart
-#### Install Dependencies
-Assumes docker is installed already.
 ```bash
-# clone repo and update lib deps
-# build the Docker image
-docker build -t truffle .
-# manually run truffle cli
-docker run --rm -it -v "$PWD":/src truffle
-# see Makefile for more
+# 1. install truffle cli
+npm install -g truffle
+# 2. start truffle develop ethereum client
+truffle develop
+# 3. in a new console: compile Dapp
+truffle compile
+# 4. deploy migration
+truffle migrate --reset --network development
 ```
 
-#### Developing
-```bash
-make        # build src
-make clean  # clean out/*
-make test   # test
-make deploy # deploy
-```
+## Ethereum Clients
+In addition to `truffle develop` there are other options for Ethereum Clients both development and real:
 
-## Ethereum Network
-Local Testing:
+Ganache
 ```bash
 # stand alone local test client
 docker run --rm -it -p 8545:8545 trufflesuite/ganache-cli
 ```
 
-Testing:
+Ethereum Testnet:
 ```bash
 # This will persist your configuration in ~/.ethereum (might need to set permissions properly)
 # https://github.com/ethereum/go-ethereum#full-node-on-the-ethereum-test-network
@@ -55,12 +49,13 @@ docker run --rm -it \
 > admin.nodeInfo
 ```
 
-Actual Ethereum Network:
+Ethereum Real Network:
 ```bash
 # just remove --testnet from previous command
 ```
 
 ## References
+* [truffleframework](http://truffleframework.com/docs/getting_started/installation)
 * [trufflesuite/ganache-cli](https://github.com/trufflesuite/ganache-cli)
 * [ethereum/solidity](https://github.com/ethereum/solidity)
 * [ethereum/go-ethereum](https://github.com/ethereum/go-ethereum)
