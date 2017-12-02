@@ -69,6 +69,15 @@ Ethereum Real Network:
 # just remove --testnet from previous command
 ```
 
+## MoneyMoneyMoneyMoney
+* `truffle migrate -f 2 --network rinkeby`
+* Copy abi from ./build/contracts/Money.json
+* Get rid of the newlines and new paragraphs [using this tool](https://www.textfixer.com/tools/remove-line-breaks.php)
+* On your geth console:
+  * `var abi = <your abi string>`
+  * `var money_contract = web3.eth.contract(abi)`
+  * `var money_inst = money_contract.at('<contract addr>')`
+
 ## References
 * [truffleframework](http://truffleframework.com/docs/getting_started/installation)
 * [trufflesuite/ganache-cli](https://github.com/trufflesuite/ganache-cli)
