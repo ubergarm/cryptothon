@@ -1,0 +1,22 @@
+{
+  "name": "web",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "ethereumjs-testrpc": "^6.0.3",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.0.17",
+    "require-nocache": "^1.0.0",
+    "solc": "^0.4.19",
+    "truffle-artifactor": "^3.0.0",
+    "truffle-contract": "^3.0.1",
+    "web3": "0.20.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
