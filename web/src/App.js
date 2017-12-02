@@ -9,6 +9,9 @@ const getWeb3 = () => {
   // } else {
     // set the provider you want from Web3.providers
     return new Web3(new Web3.providers.HttpProvider("http://localhost:9545"));
+    // something like these next ones to connect this to Geth
+    // return new Web3(new Web3.providers.HttpProvider("127.0.0.1:8080"));
+    // return new Web3(new Web3.providers.HttpProvider("127.0.0.1:8545"));
   // }
 }
 
@@ -65,21 +68,20 @@ const contract = web3.eth.contract({
 
 // list out all the accounts
 web3.eth.getAccounts((error, accounts) => {
-  const storage = contract.new({from: accounts[0], gas: 300000});
-  console.log(storage);
-  console.log('accounts', accounts);
+  const contractId = "0x751236c2a1a9bbc56c5024dd6087430490f4b540";
 
-  web3.eth.defaultAccount = accounts[0]
+  console.log(web3.eth.accounts);
+
+  // web3.eth.defaultAccount = accounts[0];
+
   // this works
-  console.log(contract.at(accounts[0]).get());
-  // console.log(storage.get());
+  // console.log(contract.at(contractId).get());
 
   // this does not
   // https://ethereum.stackexchange.com/questions/2086/cannot-perform-write-functions-in-smart-contract-invalid-address
-  contract.at(accounts[0]).put(1, { from: accounts[1] });
-  // storage.put(1, { from: accounts[1] });
+  // contract.at(contractId).put("1", { from: accounts[0], gas: 400000 });
 
-  console.log(contract.at(accounts[0]).get());
+  // console.log(contract.at(contractId).get());
 
 });
 
