@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Web3 from 'web3';
-const Contract = require("truffle-contract");
+// const Contract = require("truffle-contract");
 
 const getWeb3 = () => {
   // if (typeof web3 !== 'undefined') {
@@ -12,13 +12,9 @@ const getWeb3 = () => {
   // }
 }
 
-const provider = getWeb3();
+const web3 = getWeb3();
 
-// const source = ' pragma solidity ^0.4.17; contract Money { uint private myFuckingMoney; function Money(uint initialFuckingMoney) public { myFuckingMoney = initialFuckingMoney; } function put (uint amountOfFuckingMoney) public { myFuckingMoney = myFuckingMoney + amountOfFuckingMoney; } function get () public constant returns (uint) { return myFuckingMoney; } } ';
-
-const contract = Contract(
-
-{
+const contract = web3.eth.contract({
   "contractName": "Money",
   "abi": [
     {
@@ -65,27 +61,33 @@ const contract = Contract(
   "networks": {},
   "schemaVersion": "1.0.1",
   "updatedAt": "2017-12-02T20:25:53.210Z"
-});
-contract.setProvider(provider);// console.log(solc.compile(tokenSource));
+}.abi);
 
-const contract_address = "0x345ca3e014aaf5dca488057592ee47305d9b3e10";
-contract.at(contract_address).then(instance => {
-  console.log(instance);
-});
+// list out all the accounts
+web3.eth.getAccounts((error, accounts) => {
+  const storage = contract.new({from: accounts[0], gas: 300000});
+  console.log(storage);
+  console.log('accounts', accounts);
 
-// web3.eth.getBlock(1, function(error, result){
-//   if(!error) {
-//     console.log('result', result)
-//   } else {
-//     console.error('error', error);
-//   }
-// })
+  web3.eth.defaultAccount = accounts[0]
+  // this works
+  console.log(contract.at(accounts[0]).get());
+  // console.log(storage.get());
+
+  // this does not
+  // https://ethereum.stackexchange.com/questions/2086/cannot-perform-write-functions-in-smart-contract-invalid-address
+  contract.at(accounts[0]).put(1, { from: accounts[1] });
+  // storage.put(1, { from: accounts[1] });
+
+  console.log(contract.at(accounts[0]).get());
+
+});
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        Shit
+        ShitCoin
       </div>
     );
   }
