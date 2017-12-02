@@ -6,7 +6,7 @@ contract MoneyMoneyMoneyMoney {
 
 
 
-  function MoneyMoneyMoneyMoney(uint initialFuckingMoney) {
+  function MoneyMoneyMoneyMoney(uint initialFuckingMoney) public {
 
     myFuckingMoney = initialFuckingMoney;
 
@@ -14,7 +14,7 @@ contract MoneyMoneyMoneyMoney {
 
 
 
-  function takeMyMoney (uint amountOfFuckingMoney) {
+  function takeMyMoney (uint amountOfFuckingMoney) public {
 
     myFuckingMoney = myFuckingMoney + amountOfFuckingMoney;
 
@@ -22,7 +22,7 @@ contract MoneyMoneyMoneyMoney {
 
 
 
-  function tellMeHowMuchFuckingMoneyYouHave () constant returns (uint) {
+  function tellMeHowMuchFuckingMoneyYouHave () public constant returns (uint) {
 
     return myFuckingMoney;
 
