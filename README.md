@@ -30,6 +30,9 @@ Ethereum Testnet:
 ```bash
 # This will persist your configuration in ~/.ethereum (might need to set permissions properly)
 # https://github.com/ethereum/go-ethereum#full-node-on-the-ethereum-test-network
+# Setup a new account
+docker run --rm -it geth -v "$HOME":/root --testnet account new
+# Connect a console
 docker run --rm -it \
            -v "$HOME":/root \
            -p 8545:8545 \
@@ -40,6 +43,8 @@ docker run --rm -it \
            --testnet \
            --fast \
            --cache=512 \
+           --rpc \
+           --rpcapi eth,net,web3,personal \
            console
 # <cntrl-d> to exit
 # some commands:
@@ -47,6 +52,12 @@ docker run --rm -it \
 > net.peerCount
 > admin.peers
 > admin.nodeInfo
+> eth.accounts # list accounts
+> eth # all eth commands
+> web3 # all web3 commands
+> personal # all personal commands
+> personal.unlockAccount(eth.accounts[0]) # unlock 1st account
+> web3.personal.unlockAccount(web3.personal.listAccounts[0]) # unlock web3 account
 ```
 
 Ethereum Real Network:
