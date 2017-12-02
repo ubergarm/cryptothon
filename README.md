@@ -31,10 +31,14 @@ Ethereum Testnet:
 # This will persist your configuration in ~/.ethereum (might need to set permissions properly)
 # https://github.com/ethereum/go-ethereum#full-node-on-the-ethereum-test-network
 # Setup a new account
-docker run --rm -it geth -v "$HOME":/root --testnet account new
+docker run --rm -it \
+           -v "$HOME":/root \
+           ethereum/client-go:stable \
+           --testnet account new
 # Connect a console
 docker run --rm -it \
            -v "$HOME":/root \
+           -p 8080:8080 \
            -p 8545:8545 \
            -p 8546:8546 \
            -p 30303:30303 \
