@@ -50,5 +50,5 @@ docker run --rm -it \
 ## References
 * [dapphub/dapp](https://github.com/dapphub/dapp)
 * [ethereum/solidity](https://github.com/ethereum/solidity)
+* [ethereum/go-ethereum](https://github.com/ethereum/go-ethereum)
 * [list of decentralized apps](https://www.stateofthedapps.com/)
-
