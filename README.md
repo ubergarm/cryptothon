@@ -56,7 +56,7 @@ docker run --rm -it \
            --rpcport 8545 \
            --rpccorsdomain "*" \
            --ws \
-           --wsport 8000 \
+           --wsport 8546 \
            --wsorigins "*" \
            --rpcapi eth,net,web3,personal \
            console
