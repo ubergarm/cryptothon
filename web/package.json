@@ -19,6 +19,7 @@
     "web3": "0.20.1"
   },
   "scripts": {
+    "copy_contract_json": "cp $CONTRACT ./src/contracts",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

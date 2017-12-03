@@ -4,6 +4,8 @@ import {
   getAccount,
 } from "../utils/contract";
 
+const json = require("../../../../build/Money.json");
+
 const contract = Contract([
   {
     "constant": false,
@@ -45,6 +47,7 @@ const contract = Contract([
     "type": "constructor"
   }
 ]);
+
 const contractId = "0x751236c2a1a9bbc56c5024dd6087430490f4b540";
 export const login = _login;
 
