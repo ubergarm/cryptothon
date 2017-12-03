@@ -3,7 +3,7 @@ import Tontine from "./components/Tontine";
 import './tontine.css';
 import {
   login,
-} from "./contract";
+} from "../utils/contract";
 
 class TontineContainer extends Component {
   componentDidMount() {
