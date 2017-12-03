@@ -20,13 +20,15 @@ truffle migrate --reset --network development
 ## Ethereum Clients
 In addition to `truffle develop` there are other options for Ethereum Clients both development and real:
 
-Ganache
+### Ganache
 ```bash
 # stand alone local test client
 docker run --rm -it -p 8545:8545 trufflesuite/ganache-cli
 ```
 
-Ethereum Testnet:
+### Ethereum Testnet:
+
+Docker
 ```bash
 # Note you could also use --rinkeby instead of --testnet (ropsten?)
 
@@ -67,9 +69,24 @@ docker run --rm -it \
 > eth.getBalance(eth.coinbase) # get balance in Ethercoin
 ```
 
-Ethereum Real Network:
+Geth & Rinkeby
+```bash
+# Create a new account
+geth --rinkeby account new
+
+# Start a Rinkeby client
+geth --rinkeby --fast --cache=1024 --rpc --rpcapi eth,net,web3,personal
+
+# Attach a console to the client
+geth --datadir=$HOME/.ethereum/rinkeby attach ipc:$HOME/.ethereum/rinkeby/geth.ipc console
+
+```
+
+### Ethereum Real Network:
 ```bash
 # just remove --testnet or --rinkeby from previous command
+
+
 ```
 
 ## Currency Units
@@ -81,6 +98,8 @@ Ethereum Real Network:
 10^12: szabo
 10^15: finney
 10^18: ether
+
+10^18 wei = 1 ether
 ```
 
 ## MoneyMoneyMoneyMoney
