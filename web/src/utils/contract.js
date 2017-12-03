@@ -21,7 +21,7 @@ export const login = (password, timeout = 60*60) => new Promise((resolve, reject
   const account = web3.personal.listAccounts[0];
   try {
     web3.personal.unlockAccount(account, password, timeout);
-    resolve(account);
+    resolve({ account, timeout });
   } catch(err) {
     reject(err);
   }

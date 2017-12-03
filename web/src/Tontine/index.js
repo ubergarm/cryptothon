@@ -9,11 +9,12 @@ import {
   entryCapital,
 } from "./contract";
 
+const LOCAL_STORAGE_KEY = "shitcoin";
 class TontineContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loggedIn: true,
+      loggedIn: false,
       error: null,
       account: null,
 
@@ -25,7 +26,16 @@ class TontineContainer extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
+    try {
+      const { expiration } = JSON.parse(localStorage[LOCAL_STORAGE_KEY]);
+      if ((new Date()).getTime() < expiration) {
+        this.setState({
+          loggedIn: true,
+        });
+      }
+    } catch(err) {}
+
     [
       { name: "alive", fn: rollCall, },
       { name: "invested", fn: invest, },
@@ -55,7 +65,11 @@ class TontineContainer extends Component {
   }
 
   login(values) {
-    login(values.password).then((account) => {
+    login(values.password).then(({ account, timeout }) => {
+      const expiration = new Date((new Date()).getTime() + timeout*1000);
+      localStorage[LOCAL_STORAGE_KEY] = JSON.stringify({
+        expiration: expiration.getTime(),
+      });
       this.setState({
         account,
         loggedIn: true,

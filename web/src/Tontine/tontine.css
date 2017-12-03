@@ -21,3 +21,7 @@
   flex: 0;
   margin-right: 20px;
 }
+
+.tontine label {
+  font-style: italic;
+}
