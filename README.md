@@ -50,6 +50,8 @@ docker run --rm -it \
            --fast \
            --cache=512 \
            --rpc \
+           --rpcaddr "0.0.0.0" \
+           --rpcport 8545 \
            --rpcapi eth,net,web3,personal \
            console
 # <cntrl-d> to exit
