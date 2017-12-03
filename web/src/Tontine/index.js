@@ -40,7 +40,7 @@ class TontineContainer extends Component {
       { name: "alive", fn: rollCall, },
       { name: "invested", fn: invest, },
       { name: "entryCapital", fn: entryCapital, },
-    ].map(({
+    ].forEach(({
       name,
       fn,
     }) => {

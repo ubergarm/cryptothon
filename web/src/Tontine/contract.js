@@ -4,51 +4,11 @@ import {
   getAccount,
 } from "../utils/contract";
 
-const json = require("../../../../build/Money.json");
+const json = require("../contracts/Money.json");
 
-const contract = Contract([
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "amountOfFuckingMoney",
-        "type": "uint256"
-      }
-    ],
-    "name": "put",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [],
-    "name": "get",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "name": "initialFuckingMoney",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "constructor"
-  }
-]);
+const contract = Contract(json.abi);
 
-const contractId = "0x751236c2a1a9bbc56c5024dd6087430490f4b540";
+const contractId = "0x3f2d0cf249ec3cb5743f19ce8761a429e9194aaf";
 export const login = _login;
 
 export const rollCall = (wallet) => getAccount().then(account => {

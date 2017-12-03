@@ -15,7 +15,7 @@ export const getWeb3 = () => {
 
 const web3 = getWeb3();
 
-export const Contract = web3.eth.contract;
+export const Contract = (args) => web3.eth.contract(args);
 
 export const login = (password, timeout = 60*60) => new Promise((resolve, reject) => {
   const account = web3.personal.listAccounts[0];
