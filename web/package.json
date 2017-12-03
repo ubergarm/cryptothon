@@ -6,6 +6,8 @@
     "ethereumjs-testrpc": "^6.0.3",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
     "require-nocache": "^1.0.0",
     "solc": "^0.4.19",
