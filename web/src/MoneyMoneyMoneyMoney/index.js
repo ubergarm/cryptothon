@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import Web3 from 'web3';
-// const Contract = require("truffle-contract");
 
 import {
   getWeb3,
+  Contract,
 } from "../utils/contract";
 
 const web3 = getWeb3();
 
-const contract = web3.eth.contract({
+const contract = Contract({
   "contractName": "Money",
   "abi": [
     {

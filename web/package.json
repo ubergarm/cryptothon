@@ -5,8 +5,10 @@
   "dependencies": {
     "ethereumjs-testrpc": "^6.0.3",
     "material-ui": "^0.19.4",
+    "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-fontawesome": "^1.6.1",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",

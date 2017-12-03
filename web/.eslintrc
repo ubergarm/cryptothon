@@ -1,0 +1,12 @@
+{
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "env": {
+    "node": true
+  },
+  "plugins": [
+    "react"
+  ]
+  "extends": "eslint:recommended"
+}

@@ -7,3 +7,17 @@
   max-width: 400px;
   float: right;
 }
+
+.message {
+  font-size: 10px;
+}
+
+.locks {
+  display: flex;
+  margin: 20px 0;
+}
+
+.locks > * {
+  flex: 0;
+  margin-right: 20px;
+}

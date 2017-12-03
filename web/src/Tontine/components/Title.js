@@ -6,7 +6,7 @@ const Title = () => {
     <div className="title">
       <img alt="title" className="mall" src={img} />
       <h1>Tontine</h1>
-      <h2>You're in or you're dead</h2>
+      <h2>You're in or you're dead!</h2>
     </div>
   );
 }

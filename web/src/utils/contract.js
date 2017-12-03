@@ -15,11 +15,17 @@ export const getWeb3 = () => {
 
 const web3 = getWeb3();
 
-export const contract = web3.eth.contract;
+export const Contract = web3.eth.contract;
 
-export const login = (password, timeout = 60*60) => {
-  return web3.personal.unlockAccount(web3.personal.listAccounts[0], password, timeout);
-};
+export const login = (password, timeout = 60*60) => new Promise((resolve, reject) => {
+  const account = web3.personal.listAccounts[0];
+  try {
+    web3.personal.unlockAccount(account, password, timeout);
+    resolve(account);
+  } catch(err) {
+    reject(err);
+  }
+});
 
 export const getAccount = () => new Promise((resolve, reject) => {
   web3.eth.getAccounts((error, accounts) => {
