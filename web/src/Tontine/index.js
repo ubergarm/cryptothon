@@ -36,6 +36,7 @@ class TontineContainer extends Component {
       }
     } catch(err) {}
 
+
     [
       { name: "alive", fn: rollCall, },
       { name: "invested", fn: invest, },
@@ -47,7 +48,7 @@ class TontineContainer extends Component {
       fn().then((result) => {
         this.setState({
           ...this.state,
-          [name]: result,
+          [name]: result.plus(21).toString(10),
         });
       }).catch(err => {
         this.setState({

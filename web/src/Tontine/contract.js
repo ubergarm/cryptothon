@@ -4,7 +4,7 @@ import {
   getAccount,
 } from "../utils/contract";
 
-const json = require("../contracts/Money.json");
+const json = require("../contracts/Tontine.json");
 
 const contract = Contract(json.abi);
 

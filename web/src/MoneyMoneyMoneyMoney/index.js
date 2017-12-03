@@ -8,7 +8,7 @@ import {
 
 const web3 = getWeb3();
 
-const json = require("../contracts/Money.json");
+const json = require("../contracts/Tontine.json");
 const contract = Contract(json.abi)
 
 console.log('boom', contract);
