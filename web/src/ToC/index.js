@@ -4,16 +4,19 @@ import {
   Link,
 } from 'react-router-dom';
 
-class App extends Component {
+class ToC extends Component {
   render() {
     return (
       <div>
         <h1>WUSSUP welcome to Shitcoins:</h1>
-        <Link to="/money">MoneyMoneyMoneyMoney</Link>
+        <ul>
+          <li><Link to="/money">MoneyMoneyMoneyMoney</Link></li>
+          <li><Link to="/tontine">Tontine</Link></li>
+        </ul>
       </div>
     );
   }
 }
 
-export default App;
+export default ToC;
 
