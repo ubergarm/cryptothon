@@ -52,8 +52,12 @@ docker run --rm -it \
            --fast \
            --cache=512 \
            --rpc \
-           --rpcaddr "0.0.0.0" \
+           --rpcaddr localhost \
            --rpcport 8545 \
+           --rpccorsdomain "*" \
+           --ws \
+           --wsport 8000 \
+           --wsorigins "*" \
            --rpcapi eth,net,web3,personal \
            console
 # <cntrl-d> to exit
@@ -125,5 +129,6 @@ npm start
 * [trufflesuite/ganache-cli](https://github.com/trufflesuite/ganache-cli)
 * [ethereum/solidity](https://github.com/ethereum/solidity)
 * [ethereum/go-ethereum](https://github.com/ethereum/go-ethereum)
+* [etherscan](https://testnet.etherscan.io/)
 * [rinkeby.io](https://www.rinkeby.io/#stats)
 * [list of decentralized apps](https://www.stateofthedapps.com/)
