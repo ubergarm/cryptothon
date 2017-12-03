@@ -56,7 +56,7 @@ docker run --rm -it \
            --rpcport 8545 \
            --rpccorsdomain "*" \
            --ws \
-           --wsport 8000 \
+           --wsport 8546 \
            --wsorigins "*" \
            --rpcapi eth,net,web3,personal \
            console
@@ -129,6 +129,7 @@ npm start
 * [trufflesuite/ganache-cli](https://github.com/trufflesuite/ganache-cli)
 * [ethereum/solidity](https://github.com/ethereum/solidity)
 * [ethereum/go-ethereum](https://github.com/ethereum/go-ethereum)
+* [paritytech/parity](https://github.com/paritytech/parity)
 * [etherscan](https://testnet.etherscan.io/)
 * [rinkeby.io](https://www.rinkeby.io/#stats)
 * [list of decentralized apps](https://www.stateofthedapps.com/)
