@@ -68,29 +68,79 @@ const contract = web3.eth.contract({
 
 console.log('boom');
 // list out all the accounts
-web3.eth.getAccounts((error, accounts) => {
-  const contractId = "0x751236c2a1a9bbc56c5024dd6087430490f4b540";
 
-  console.log(web3.eth.accounts);
-
-  // web3.eth.defaultAccount = accounts[0];
-
-  // this works
-  console.log(contract.at(contractId).get());
-
-  // this does not
-  // https://ethereum.stackexchange.com/questions/2086/cannot-perform-write-functions-in-smart-contract-invalid-address
-  contract.at(contractId).put("1", { from: accounts[0], gas: 400000 });
-
-  console.log(contract.at(contractId).get());
-
-});
-
+const contractId = "0x751236c2a1a9bbc56c5024dd6087430490f4b540";
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      accounts: [],
+      values: {},
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleSubmit() {
+    console.log('values', this.state.values);
+    try {
+      web3.personal.unlockAccount(web3.personal.listAccounts[0], this.state.values.password, 1000);
+
+      console.log('try and put money:');
+      contract.at(contractId).put("1", { from: web3.personal.listAccounts[0], gas: 400000 });
+
+      console.log(contract.at(contractId).get());
+    } catch(err) {
+      console.log('err', err);
+    }
+  }
+
+  handleChange(e) {
+    e.preventDefault();
+    this.setState({
+      values: {
+        ["password"]: e.target.value,
+      },
+    });
+  }
+  componentDidMount() {
+    web3.eth.getAccounts((error, accounts) => {
+
+      console.log(web3.eth.accounts);
+      this.setState({
+        accounts: web3.eth.accounts,
+      });
+
+      // web3.eth.defaultAccount = accounts[0];
+
+      // this works
+      console.log(contract.at(contractId).get());
+
+      // this does not
+      // https://ethereum.stackexchange.com/questions/2086/cannot-perform-write-functions-in-smart-contract-invalid-address
+      // contract.at(contractId).put("1", { from: accounts[0], gas: 400000 });
+
+      // console.log(contract.at(contractId).get());
+
+    });
+  }
   render() {
     return (
       <div className="App">
         ShitCoin
+        <div>
+          Accounts: {this.state.accounts.join(", ")}
+          <br />
+
+          <form onSubmit={(e) => {
+            e.preventDefault();
+            this.handleSubmit();
+          }}>
+            <label>Password:</label>
+            <input onChange={this.handleChange} type="password" name="password" />
+            <input type="submit" />
+          </form>
+          
+        </div>
       </div>
     );
   }
